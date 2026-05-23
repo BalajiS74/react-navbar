@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        width: 220px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 2px 2px 6px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <div id="container"></div>
+    <button onclick="random()">Shuffle</button>
+
+    <script>
+      const myArray = [
+        {
+          id: 1,
+          title: "Flight Booking",
+          description: "Book flights to your favorite destinations with ease.",
+          image: "https://images.unsplash.com/photo-1574266965598-733f8ff7e41a",
+        },
+        {
+          id: 2,
+          title: "Hotel Reservations",
+          description:
+            "Find and book hotels that suit your budget and preferences.",
+          image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0",
+        },
+        {
+          id: 3,
+          title: "Travel Insurance",
+          description:
+            "Protect your trip with comprehensive travel insurance plans.",
+          image: "https://images.unsplash.com/photo-1706880471208-88328ff11505",
+        },
+        {
+          id: 4,
+          title: "Car Rentals",
+          description: "Rent cars at affordable rates for your travel needs.",
+          image: "https://images.unsplash.com/photo-1563720224122-7000b5a996f9",
+        },
+        {
+          id: 5,
+          title: "Cruise Trips",
+          description: "Explore the seas with luxurious cruise packages.",
+          image: "https://images.unsplash.com/photo-1575739484767-9a8d3d80d3e9",
+        },
+        {
+          id: 6,
+          title: "Tour Packages",
+          description: "Join group tours and explore destinations with guides.",
+          image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+        },
+        {
+          id: 7,
+          title: "Visa Assistance",
+          description: "Get help with visa applications and documentations.",
+          image: "https://images.unsplash.com/photo-1600267165653-3f92f8d172b8",
+        },
+        {
+          id: 8,
+          title: "Currency Exchange",
+          description:
+            "Exchange your currency at the best rates before traveling.",
+          image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d",
+        },
+        {
+          id: 9,
+          title: "Airport Transfers",
+          description: "Pre-book reliable airport pickups and drop-offs.",
+          image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df",
+        },
+        {
+          id: 10,
+          title: "Travel Consultation",
+          description: "Get expert advice for planning your perfect trip.",
+          image: "https://images.unsplash.com/photo-1518684079-3c830dcef090",
+        },
+      ];
+      const container = document.getElementById("container");
+
+      function renderCards(data) {
+        container.innerHTML = ""; // Clear previous cards
+        data.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+              <h2>${item.title}</h2>
+              <p>${item.description}</p>
+              <img width="200" src="${item.image}" alt="${item.title}" />
+            `;
+          container.appendChild(card);
+        });
+      }
+
+      function random() {
+        const shuffled = [...myArray].sort(() => 0.5 - Math.random());
+        renderCards(shuffled.slice(0, 3));
+      }
+
+      // Show initial cards
+      renderCards(myArray);
+    </script>
+  </body>
+</html>
